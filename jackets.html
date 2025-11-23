@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Puff Jackets - Fashion Hub</title>
+  <link rel="stylesheet" href="style.css">
+  <script src="script.js" defer></script>
+</head>
+<body>
+  <header>
+    <div class="logo">Fashion Hub</div>
+    <nav>
+      <a href="index.html">Home</a>
+      <a href="shirts.html">Shirts</a>
+      <a href="jackets.html">Puff Jackets</a>
+      <a href="trousers.html">Trousers</a>
+      <a href="contact.html">Contact</a>
+    </nav>
+  </header>
+
+  <section class="hero">
+    <h1>Puff Jackets Collection</h1>
+    <p>Stay warm and stylish this season!</p>
+  </section>
+
+  <section class="products">
+    <div class="product-grid">
+      <div class="product-card">
+        <img src="puff5.jpg" alt="Winter Jacket">
+        <h3>Winter Jacket</h3>
+        <p>ksh 6000</p>
+        <button onclick="addToCart('Winter Jacket', 60)">Add to Cart</button>
+      </div>
+      <div class="product-card">
+        <img src="puff3.jpg" alt="Light Jacket">
+        <h3>Light Puff Jacket</h3>
+        <p>ksh 4500</p>
+        <button onclick="addToCart('Light Puff Jacket', 45)">Add to Cart</button>
+      </div>
+    </div>
+  </section>
+
+  <footer>
+    <p>Shopping Cart Total: $<span id="cart-total">0</span></p>
+    <p>&copy; 2025 Fashion Hub</p>
+  </footer>
+</body>
+</html>

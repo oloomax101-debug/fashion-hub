@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Shopping Cart - Fashion Hub</title>
+  <link rel="stylesheet" href="style.css">
+  <script src="script.js" defer></script>
+</head>
+<body>
+  <header>
+    <div class="logo">Fashion Hub</div>
+    <nav>
+      <a href="index.html">Home</a>
+      <a href="shirts.html">Shirts</a>
+      <a href="jackets.html">Puff Jackets</a>
+      <a href="trousers.html">Trousers</a>
+      <a href="contact.html">Contact</a>
+      <a href="cart.html">Cart</a>
+    </nav>
+  </header>
+
+  <section class="hero">
+    <h1>Your Shopping Cart</h1>
+    <p>Review your selected items below.</p>
+  </section>
+
+  <section class="products" style="max-width:800px; margin:auto;">
+    <table style="width:100%; border-collapse:collapse;">
+      <thead>
+        <tr style="background:#2b5876; color:white;">
+          <th style="padding:10px; text-align:left;">Product</th>
+          <th style="padding:10px; text-align:center;">Price</th>
+          <th style="padding:10px; text-align:center;">Quantity</th>
+          <th style="padding:10px; text-align:center;">Subtotal</th>
+          <th style="padding:10px; text-align:center;">Remove</th>
+        </tr>
+      </thead>
+      <tbody id="cart-items">
+        <!-- Items will be dynamically added here -->
+      </tbody>
+    </table>
+
+    <h3 style="text-align:right; margin-top:20px;">Total: $<span id="cart-total">0.00</span></h3>
+    <button class="btn" onclick="checkout()" style="float:right;">Checkout</button>
+  </section>
+
+  <footer>
+    <p>&copy; 2025 Fashion Hub</p>
+  </footer>
+</body>
+</html>

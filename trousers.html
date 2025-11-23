@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Long Trousers - Fashion Hub</title>
+  <link rel="stylesheet" href="style.css">
+  <script src="script.js" defer></script>
+</head>
+<body>
+  <header>
+    <div class="logo">Fashion Hub</div>
+    <nav>
+      <a href="index.html">Home</a>
+      <a href="shirts.html">Shirts</a>
+      <a href="jackets.html">Puff Jackets</a>
+      <a href="trousers.html">Trousers</a>
+      <a href="contact.html">Contact</a>
+    </nav>
+  </header>
+
+  <section class="hero">
+    <h1>Long Trousers Collection</h1>
+    <p>Comfortable and stylish trousers for every occasion!</p>
+  </section>
+
+  <section class="products">
+    <div class="product-grid">
+      <div class="product-card">
+        <img src="trouser4.jpg" alt="Casual Trousers">
+        <h3>Casual Trousers</h3>
+        <p>ksh 1500</p>
+        <button onclick="addToCart('Casual Trousers', 35)">Add to Cart</button>
+      </div>
+      <div class="product-card">
+        <img src="trouser6.jpg" alt="Formal Trousers">
+        <h3>Formal Trousers</h3>
+        <p>ksh 2000</p>
+        <button onclick="addToCart('Formal Trousers', 40)">Add to Cart</button>
+      </div>
+    </div>
+  </section>
+
+  <footer>
+    <p>Shopping Cart Total: $<span id="cart-total">0</span></p>
+    <p>&copy; 2025 Fashion Hub</p>
+  </footer>
+</body>
+</html>

@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Contact / Order - Fashion Hub</title>
+  <link rel="stylesheet" href="style.css">
+  <!-- EmailJS SDK -->
+  <script src="https://cdn.jsdelivr.net/npm/emailjs-com@3/dist/email.min.js"></script>
+  <script src="script.js" defer></script>
+</head>
+<body>
+  <header>
+    <div class="logo">Fashion Hub</div>
+    <nav>
+      <a href="index.html">Home</a>
+      <a href="shirts.html">Shirts</a>
+      <a href="jackets.html">Puff Jackets</a>
+      <a href="trousers.html">Trousers</a>
+      <a href="contact.html">Contact</a>
+      <a href="cart.html">Cart</a>
+    </nav>
+  </header>
+
+  <section class="hero">
+    <h1>Contact / Place Your Order</h1>
+    <p>Fill out the form below and we will receive your order directly!</p>
+  </section>
+
+  <section class="products" style="max-width:600px;margin:auto;">
+    <form id="contact-form" onsubmit="sendEmail(event)">
+      <input type="text" name="name" placeholder="Your Name" required style="width:100%; padding:10px; margin-bottom:10px; border-radius:5px;">
+      <input type="email" name="email" placeholder="Your Email" required style="width:100%; padding:10px; margin-bottom:10px; border-radius:5px;">
+      <textarea name="message" placeholder="Your Message" required style="width:100%; padding:10px; margin-bottom:10px; border-radius:5px;"></textarea>
+
+      <!-- Hidden field to include cart details -->
+      <input type="hidden" name="cart_details" id="cart-details">
+
+      <button type="submit" class="btn">Send Order</button>
+    </form>
+  </section>
+
+  <footer>
+    <p>&copy; 2025 Fashion Hub</p>
+  </footer>
+</body>
+</html>
+

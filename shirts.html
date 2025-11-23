@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Shirts - Fashion Hub</title>
+  <link rel="stylesheet" href="style.css">
+  <script src="script.js" defer></script>
+</head>
+<body>
+
+  <!-- ===== Header ===== -->
+  <header>
+    <div class="logo">Fashion Hub</div>
+    <nav>
+      <a href="index.html">Home</a>
+      <a href="shirts.html">Shirts</a>
+      <a href="jackets.html">Puff Jackets</a>
+      <a href="trousers.html">Trousers</a>
+      <a href="contact.html">Contact</a>
+      <a href="cart.html">Cart</a>
+    </nav>
+  </header>
+
+  <!-- ===== Hero Section ===== -->
+  <section class="hero">
+    <h1>Shirts Collection</h1>
+    <p>Browse our trendy shirt selection!</p>
+  </section>
+
+  <!-- ===== Shirts Products ===== -->
+  <section class="products">
+    <div class="product-grid">
+      <div class="product-card">
+        <img src="casual2.jpg" alt="Casual Shirt">
+        <h3>Casual Shirt</h3>
+        <p>ksh 1200</p>
+        <button onclick="addToCart('Casual Shirt', 25)">Add to Cart</button>
+      </div>
+
+      <div class="product-card">
+        <img src="formal4.jpg" alt="Formal Shirt">
+        <h3>Formal Shirt</h3>
+        <p>ksh 1500</p>
+        <button onclick="addToCart('Formal Shirt', 30)">Add to Cart</button>
+      </div>
+
+      <div class="product-card">
+        <img src="print4.jpg" alt="Printed Shirt">
+        <h3>Printed Shirt</h3>
+        <p>ksh 1800</p>
+        <button onclick="addToCart('Printed Shirt', 28)">Add to Cart</button>
+      </div>
+
+      <div class="product-card">
+        <img src="denim5.jpg" alt="Denim Shirt">
+        <h3>Denim Shirt</h3>
+        <p>ksh 2000</p>
+        <button onclick="addToCart('Denim Shirt', 35)">Add to Cart</button>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== Footer ===== -->
+  <footer>
+    <p>Shopping Cart Total: $<span id="cart-total">0.00</span></p>
+    <p>&copy; 2025 Fashion Hub</p>
+  </footer>
+
+</body>
+</html>

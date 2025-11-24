@@ -59,14 +59,14 @@ function checkout(){
 // ===== EmailJS Functionality =====
 (function(){
     // EmailJS Public Key (User ID)
-    emailjs.init("FkVqpj9PcMDs4FERt");
+    emailjs.init("at44eDEpy73Drrr9");
 })();
 
 function sendEmail(event){
     event.preventDefault()
     <form id="contact-form" onsubmit="sendEmail(event)">
     // EmailJS Service ID & Template ID
-    emailjs.sendForm('service_hu7fipc', 'szx1vfr', form)
+    emailjs.sendForm('service_9glsnqn, template_rsgdy3i, form)
     .then(() => {
         alert("Message sent successfully!");
         form.reset();
@@ -77,3 +77,4 @@ function sendEmail(event){
 
 // Initialize cart display
 updateCartDisplay();
+

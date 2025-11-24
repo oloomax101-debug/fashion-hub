@@ -1,140 +1,229 @@
-/* -------------------------------
-      GLOBAL CART SYSTEM
---------------------------------*/
-
-// Load cart from localStorage
-let cart = JSON.parse(localStorage.getItem("cart")) || [];
-
-/* -------------------------------
-      SAVE CART
---------------------------------*/
-function saveCart() {
-  localStorage.setItem("cart", JSON.stringify(cart));
+/* ===== Reset & Body ===== */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
 }
 
-/* -------------------------------
-      ADD TO CART
---------------------------------*/
-function addToCart(productName, productPrice, productImage) {
-  let existing = cart.find(item => item.name === productName);
+body {
+  font-family: 'Roboto', sans-serif;
+  background:  url("./naruto.jpg") ;
+  background-size: cover;
+  color: #222;
+  line-height: 1.6;
+  min-height: 100vh;
+}
 
-  if (existing) {
-    existing.qty += 1;
-  } else {
-    cart.push({
-      name: productName,
-      price: productPrice,
-      image: productImage,
-      qty: 1
-    });
+/* ===== Header ===== */
+header {
+  background: rgba(40, 42, 52, 0.95);
+  backdrop-filter: blur(10px);
+  color: white;
+  padding: 1rem 3rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.2);
+  position: sticky;
+  top: 0;
+  z-index: 100;
+}
+
+header .logo {
+  font-size: 1.8rem;
+  font-weight: bold;
+  letter-spacing: 1px;
+  color: #ff9800;
+}
+
+nav a {
+  color: #fff;
+  margin-left: 2rem;
+  text-decoration: none;
+  font-weight: bold;
+  position: relative;
+  transition: 0.3s;
+}
+
+nav a::after {
+  content: '';
+  display: block;
+  height: 2px;
+  width: 0;
+  background: #ff9800;
+  transition: width 0.3s;
+  position: absolute;
+  bottom: -5px;
+  left: 0;
+}
+
+nav a:hover::after {
+  width: 100%;
+}
+
+/* ===== Hero Section ===== */
+.hero {
+  background: rgba(255, 255, 255, 0.15); /* transparent white */
+  backdrop-filter: blur(12px);            /* glass effect */
+  -webkit-backdrop-filter: blur(12px);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+.hero h1 {
+  font-size: 3rem;
+  margin-bottom: 1rem;
+  text-shadow: 2px 2px 10px rgba(0,0,0,0.3);
+}
+
+.hero p {
+  font-size: 1.2rem;
+  margin-bottom: 2rem;
+}
+
+.btn {
+  background: #ff9800;
+  color: #fff;
+  border: none;
+  margin-top: 1.5rem;
+  padding: 1rem 2rem;
+  border-radius: 50px;
+  font-size: 1rem;
+  cursor: pointer;
+  text-decoration: none;
+  transition: all 0.3s ease;
+  box-shadow: 0 0 15px #ff9800, 0 0 30px #ff9800;
+}
+
+.btn:hover {
+  transform: scale(1.05) translateY(-3px);
+  box-shadow: 0 0 20px #ff9800, 0 0 40px #ff9800;
+}
+
+/* ===== Products ===== */
+.products {
+  padding: 4rem 2rem;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.product-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 2.5rem;
+}
+
+.product-card {
+  background: rgba(255, 255, 255, 0.15);
+  backdrop-filter: blur(10px);
+  border-radius: 15px;
+  padding: 2rem 1rem;
+  text-align: center;
+  transition: transform 0.4s ease, box-shadow 0.4s ease;
+  position: relative;
+  overflow: hidden;
+  border: 1px solid rgba(255,255,255,0.3);
+}
+
+.product-card::before {
+  content: '';
+  position: absolute;
+  width: 200%;
+  height: 200%;
+  background: radial-gradient(circle, rgba(255,152,0,0.1) 0%, transparent 60%);
+  top: -50%;
+  left: -50%;
+  transform: rotate(45deg);
+  opacity: 0;
+  transition: opacity 0.5s;
+}
+
+.product-card:hover::before {
+  opacity: 1;
+}
+
+.product-card:hover {
+  transform: translateY(-15px);
+  box-shadow: 0 20px 40px rgba(0,0,0,0.2);
+}
+
+.product-card img {
+  width: 100%;
+  max-width: 180px;
+  border-radius: 12px;
+  margin-bottom: 1rem;
+  transition: transform 0.4s ease;
+}
+
+.product-card img:hover {
+  transform: scale(1.1);
+}
+
+.product-card h3 {
+  margin: 0.5rem 0;
+  font-size: 1.2rem;
+  color: #fff;
+  text-shadow: 1px 1px 6px rgba(0,0,0,0.3);
+}
+
+.product-card p {
+  color: #ffe0b2;
+  font-weight: bold;
+  margin-bottom: 1rem;
+  text-shadow: 1px 1px 4px rgba(0,0,0,0.2);
+}
+
+.product-card button {
+  background: #ff9800;
+  color: #fff;
+  border: none;
+  border-radius: 50px;
+  padding: 0.7rem 1.5rem;
+  font-weight: bold;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  box-shadow: 0 0 10px #ff9800, 0 0 20px #ff9800;
+}
+
+.product-card button:hover {
+  transform: scale(1.05);
+  box-shadow: 0 0 20px #ff9800, 0 0 40px #ff9800;
+}
+
+/* ===== Footer ===== */
+footer {
+  background: rgba(40, 42, 52, 0.95);
+  backdrop-filter: blur(10px);
+  color: #ffe0b2;
+  text-align: center;
+  padding: 2rem 1rem;
+  margin-top: 5rem;
+  font-size: 0.9rem;
+  box-shadow: 0 -4px 12px rgba(0,0,0,0.2);
+}
+
+/* ===== Responsive ===== */
+@media(max-width:768px){
+  header {
+    flex-direction: column;
+    align-items: flex-start;
   }
-
-  saveCart();
-  alert(productName + " added to cart!");
-}
-
-/* -------------------------------
-      REMOVE ITEM
---------------------------------*/
-function removeItem(index) {
-  cart.splice(index, 1);
-  saveCart();
-  renderCart();
-}
-
-/* -------------------------------
-      CHANGE QUANTITY
---------------------------------*/
-function changeQty(index, amount) {
-  cart[index].qty += amount;
-
-  if (cart[index].qty <= 0) {
-    removeItem(index);
-  } else {
-    saveCart();
-    renderCart();
+  nav {
+    margin-top: 1rem;
+  }
+  .hero h1 {
+    font-size: 2rem;
+  }
+  .product-card img {
+    max-width: 140px;
   }
 }
 
-/* -------------------------------
-      RENDER CART (cart.html)
---------------------------------*/
-function renderCart() {
-  const container = document.querySelector(".cart-items");
-  const subtotalBox = document.querySelector(".subtotal");
-  const totalBox = document.querySelector(".total");
-
-  if (!container) return; // not on cart page
-
-  container.innerHTML = "";
-  let subtotal = 0;
-
-  cart.forEach((item, index) => {
-    let itemTotal = item.price * item.qty;
-    subtotal += itemTotal;
-
-    container.innerHTML += `
-      <div class="cart-item">
-        <img src="${item.image}" alt="${item.name}">
-        <div class="item-details">
-          <h3>${item.name}</h3>
-          <p>$${item.price}</p>
-        </div>
-        <div class="item-qty">
-          <button class="qty-btn" onclick="changeQty(${index}, -1)">-</button>
-          <span>${item.qty}</span>
-          <button class="qty-btn" onclick="changeQty(${index}, 1)">+</button>
-        </div>
-        <p class="item-total">$${itemTotal}</p>
-        <button class="remove-btn" onclick="removeItem(${index})">Remove</button>
-      </div>
-    `;
-  });
-
-  let shipping = subtotal > 0 ? 5 : 0;
-  let total = subtotal + shipping;
-
-  if (subtotalBox) subtotalBox.innerHTML = `$${subtotal}`;
-  if (totalBox) totalBox.innerHTML = `$${total}`;
-}
-
-document.addEventListener("DOMContentLoaded", renderCart);
-
-/* -------------------------------
-      EMAILJS FUNCTIONALITY
---------------------------------*/
-
-// Initialize EmailJS with new public key
-emailjs.init("nAyOYr8zMKS4QpHzn");
-
-// Send contact form + cart details
-function sendEmail(event) {
-  event.preventDefault();
-
-  const form = event.target;
-  const cartDetailsField = document.getElementById("cart-details");
-  cartDetailsField.value = JSON.stringify(cart, null, 2);
-
-  console.log("Sending EmailJS with data:", {
-    name: form.name.value,
-    email: form.email.value,
-    message: form.message.value,
-    cart_details: cartDetailsField.value
-  });
-
-  emailjs.send("service_9glsnqn", "template_rsgdy3i", {
-      name: form.name.value,
-      email: form.email.value,
-      message: form.message.value,
-      cart_details: cartDetailsField.value
-  })
-  .then((response) => {
-      console.log("EmailJS response:", response);
-      alert("Your message has been sent successfully!");
-      form.reset();
-  })
-  .catch((err) => {
-      console.error("EmailJS error:", err);
-      alert("Failed to send message. Check console for details.");
-  });
+@media(max-width:480px){
+  .hero h1 {
+    font-size: 1.6rem;
+  }
+  .btn {
+    padding: 0.8rem 1.5rem;
+    font-size: 0.9rem;
+  }
 }
